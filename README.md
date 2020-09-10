@@ -1,10 +1,9 @@
 # Preference recruitment test 
-
 Basic web issue manager.
 
 [Trello panel](https://trello.com/b/TmjLeAKI/issue-manager)
 
-## exercise
+## Exercise
 Implement the next functionality:
 * Issue list (all fields must be editable)<br/>
   Fields:
@@ -21,7 +20,6 @@ Asume users will use last chrome version (don't care about browser compatibiliti
 Use the backend technology you want, for frontend you must use VueJS or React, and we recommend also to use typescript you can use the DB technology you want.<br/>
 
 ## SW technologies
-
 * Web APP: [React](https://reactjs.org/) Front App  
     * Aplication State Library: [Redux](https://es.redux.js.org/)
     * Styling:
@@ -38,3 +36,5 @@ Use the backend technology you want, for frontend you must use VueJS or React, a
     * Language: [SQL](https://en.wikipedia.org/wiki/SQL)
 
 ![SW architecture](assests/images/SW%20architecture%20diagram.png)
+
+## Time planning
