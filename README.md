@@ -16,3 +16,5 @@
 
 * BD: [SQLite](https://sqlite.org/index.html)
     * Language: [SQL](https://en.wikipedia.org/wiki/SQL)
+
+![SW architecture]("https://github.com/jcruizsebastian/PreferenceRecruitmetTest/blob/master/assests/images/SW%20architecture%20diagram.png")
