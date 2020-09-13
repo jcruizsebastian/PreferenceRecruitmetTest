@@ -18,12 +18,12 @@ Don't use save button, just autosave.<br/>
 Use websocket to update issues automaticaly when something changes.<br/>
 Asume users will use last chrome version (don't care about browser compatibilities).<br/>
 Use the backend technology you want, for frontend you must use VueJS or React, and we recommend also to use typescript you can use the DB technology you want.<br/>
-
 ### Mockup
-![SW architecture](assests/images/Mockup.svg)
+![Mockup](assests/images/Mockup.svg)
 ### Use cases
-![SW architecture](assests/images/Use%20cases.svg)
-
+![Use cases diagram](assests/images/Use%20cases.svg)
+## Time planning
+![Gantt diagram](assests/images/TimePlanning1.png)
 ## SW technologies
 * Web APP: [React](https://reactjs.org/) Front App  
     * Aplication State Library: [Redux](https://es.redux.js.org/)
@@ -31,6 +31,7 @@ Use the backend technology you want, for frontend you must use VueJS or React, a
         * Styling templates: [Styled-components](https://styled-components.com/)
         * CSS Framework: [Tailwind](https://tailwindcss.com/)
     * Language: [TypeScript](https://www.typescriptlang.org/)
+    * Testing: [Jest](https://jestjs.io/) and [Cucumber](https://cucumber.io/)
 
 * API: [.Net Core](https://dotnet.microsoft.com/) API
     * Query Languaje: [GraphQL](https://graphql.org/) *Only for fun. If it gets complicated I'll change to REST.*
@@ -40,6 +41,4 @@ Use the backend technology you want, for frontend you must use VueJS or React, a
 * BD: [SQLite](https://sqlite.org/index.html)
     * Language: [SQL](https://en.wikipedia.org/wiki/SQL)
 
-![SW architecture](assests/images/SW%20architecture%20diagram.png)
-
-## Time planning
+![SW architecture diagram](assests/images/SW%20architecture%20diagram.png)
