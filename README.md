@@ -19,6 +19,8 @@ Use websocket to update issues automaticaly when something changes.<br/>
 Asume users will use last chrome version (don't care about browser compatibilities).<br/>
 Use the backend technology you want, for frontend you must use VueJS or React, and we recommend also to use typescript you can use the DB technology you want.<br/>
 
+### Mockup
+![SW architecture](assests/images/Mockup.svg)
 ### Use cases
 ![SW architecture](assests/images/Use%20cases.svg)
 
