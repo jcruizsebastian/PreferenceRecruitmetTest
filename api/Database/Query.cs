@@ -30,14 +30,14 @@ namespace Api.Graphql
         }
 
         [GraphQLMetadata("updatingProjectInfo")]
-        public Project GetUpdatingProjectInfo(string projectid)
+        public Project GetUpdatingProjectInfo(int projectid)
         {
             var returnObject = myDBContext.Projects.Include(x => x.ProjectUsers).ThenInclude(y => y.User).First(y => y.Id == projectid);
             return returnObject;
         }
 
         [GraphQLMetadata("updatingUserInfo")]
-        public User GetUser(string userid)
+        public User GetUser(int userid)
         {
             return myDBContext.Users.First(x => x.Id == userid && !x.Elevated);
         }
@@ -49,7 +49,7 @@ namespace Api.Graphql
         }
 
         [GraphQLMetadata("tasks")]
-        public IEnumerable<ProjectTask> GetTasks(string projectid)
+        public IEnumerable<ProjectTask> GetTasks(int projectid)
         {
             return myDBContext.Projects.Include(y => y.Tasks).First(x => x.Id == projectid).Tasks;
         }

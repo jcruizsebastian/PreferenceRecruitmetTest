@@ -19,7 +19,7 @@ query getAllProjects
 
 query getUpdatingProjectInfo
 {
-  updatingProjectInfo(projectid: "3")
+  updatingProjectInfo(projectid: 3)
   {
     id,
     name,
@@ -37,7 +37,7 @@ query getUpdatingProjectInfo
 
 query getUpdatingUserInfo
 {
-  updatingUserInfo(userid: "3")
+  updatingUserInfo(userid: 3)
   {
     id,
     userName,
@@ -56,12 +56,30 @@ query getAllUsers
 
 query getTasksFromProject
 {
-  tasks(projectid: "1") 
+  tasks(projectid: 1)
   {
     id,
     title,
     description,
     status,
     severity,
+  }
+}
+
+mutation createUser
+{
+  createUser(userName: "nuevo1", password: "nuevo1")
+  {
+    id
+  }
+}
+
+mutation udpateUser
+{
+  udpateUser(userid: 4, userName: "modificado1", password: "modificado1")
+  {
+    id,
+    userName,
+    elevated
   }
 }

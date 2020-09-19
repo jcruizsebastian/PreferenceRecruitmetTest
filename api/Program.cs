@@ -53,10 +53,10 @@ namespace api
             if (!dbContext.ProjectUsers.Any())
             {
 
-                var userAdmin = new User { Id = "1", UserName = "admin", Password = "admin", Elevated = true };
-                var user1 = new User { Id = "2", UserName = "user1", Password = "user1", Elevated = false };
-                var user2 = new User { Id = "3", UserName = "user2", Password = "user2", Elevated = false };
-                var user3 = new User { Id = "4", UserName = "user3", Password = "user3", Elevated = false };
+                var userAdmin = new User { Id = 1, UserName = "admin", Password = "admin", Elevated = true };
+                var user1 = new User { Id = 2, UserName = "user1", Password = "user1", Elevated = false };
+                var user2 = new User { Id = 3, UserName = "user2", Password = "user2", Elevated = false };
+                var user3 = new User { Id = 4, UserName = "user3", Password = "user3", Elevated = false };
 
                 ICollection<ProjectTask> tasksProject1 = new List<ProjectTask>(){
                         { new ProjectTask () { Id = 1, Title = "Task1", Description = "Description1", Severity = ProjectTask.TaskSeverity.HIGH, Status = ProjectTask.TaskStatus.DONE } },
@@ -79,9 +79,9 @@ namespace api
                         { new ProjectTask () { Id = 12, Title = "Task12", Description = "Description12", Severity = ProjectTask.TaskSeverity.LOW, Status = ProjectTask.TaskStatus.TODO } }
                     };
 
-                var project1 = new Project { Id = "1", Name = "Project1", Tasks = tasksProject1 };
-                var project2 = new Project { Id = "2", Name = "Project2", Tasks = tasksProject2 };
-                var project3 = new Project { Id = "3", Name = "Project3", Tasks = tasksProject3 };
+                var project1 = new Project { Id = 1, Name = "Project1", Tasks = tasksProject1 };
+                var project2 = new Project { Id = 2, Name = "Project2", Tasks = tasksProject2 };
+                var project3 = new Project { Id = 3, Name = "Project3", Tasks = tasksProject3 };
 
                 dbContext.ProjectUsers.AddRange(new ProjectUser[]
                 {

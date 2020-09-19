@@ -19,22 +19,29 @@ namespace Api.Graphql
         type Query {
             login(userName: String!, password: String): User!
             projects: [Project]
-            tasks(projectid: String!): [ProjectTask]
-            updatingProjectInfo(projectid: String!): Project!
-            updatingUserInfo(userid: String!): User!
+            tasks(projectid: Int!): [ProjectTask]
+            updatingProjectInfo(projectid: Int!): Project!
+            updatingUserInfo(userid: Int!): User!
             users: [User]
-            project(projectid: String!): Project!
+            project(projectid: Int!): Project!
+        }
+
+        type Mutation {
+            createUser(userName: String!, password: String!): User!
+            udpateUser(userid: Int!, userName: String!, password: String!): User!
+            createProject(name: String!, usersId: [Int]): Project!
+            updateProject(projectId: Int!, name: String!, usersId: [Int]): Project!
         }
 
         type Project {
-            id: String
+            id: Int
             name: String
             projectTasks: [ProjectTask]
             projectUsers: [ProjectUser]
         }
 
         type ProjectTask {
-            id: String!
+            id: Int!
             title: String
             description: String
             severity: TaskSeverity!
@@ -42,8 +49,8 @@ namespace Api.Graphql
         }
 
         type ProjectUser{
-            projectid: String!
-            userid: String!
+            projectid: Int!
+            userid: Int!
             user: User!
         }
 
@@ -60,17 +67,15 @@ namespace Api.Graphql
         }
 
         type User {
-            id: String!
+            id: Int!
             userName: String!
             password: String!
             elevated: Boolean
         }
-
-        
-      ", _ =>
+        ", _ =>
             {
                 _.Types.Include<Query>();
-                //_.Types.Include<Mutation>();
+                _.Types.Include<Mutation>();
             });
         }
 
