@@ -1,3 +1,4 @@
+using api.Database;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -9,9 +10,7 @@ namespace Api.Database
         public string Id { get; set; }
         [Required]
         public string Name { get; set; }
-        [Required]
-        public bool Active { get; set; }
         public ICollection<ProjectTask> Tasks { get; set; }
-        public ICollection<User> Users { get; set; }
+        public ICollection<ProjectUser> ProjectUsers { get; set; }
     }
 }

@@ -17,25 +17,34 @@ namespace Api.Graphql
         {
             this._schema = Schema.For(@"
         type Query {
+            login(userName: String!, password: String): User!
             projects: [Project]
-            project(projectid: ID!): Project!
+            tasks(projectid: String!): [ProjectTask]
+            updatingProjectInfo(projectid: String!): Project!
+            updatingUserInfo(userid: String!): User!
+            users: [User]
+            project(projectid: String!): Project!
         }
 
         type Project {
-            id: ID
+            id: String
             name: String
-            active: Boolean
-            ProjectTasks: [ProjectTask]
-            Users: [User]
+            projectTasks: [ProjectTask]
+            projectUsers: [ProjectUser]
         }
 
         type ProjectTask {
-            id: ID!
+            id: String!
             title: String
             description: String
             severity: TaskSeverity!
             status: TaskStatus!
+        }
 
+        type ProjectUser{
+            projectid: String!
+            userid: String!
+            user: User!
         }
 
         enum TaskStatus {
@@ -51,16 +60,27 @@ namespace Api.Graphql
         }
 
         type User {
-            id: ID!
+            id: String!
             userName: String!
             password: String!
+            elevated: Boolean
         }
+
+        
       ", _ =>
-      {
-          _.Types.Include<Query>();
-          //_.Types.Include<Mutation>();
-      });
+            {
+                _.Types.Include<Query>();
+                //_.Types.Include<Mutation>();
+            });
         }
 
     }
 }
+
+// #type Mutation{
+// #    login(userName: String!, password: String!) : Boolean
+// #    addProject(name: String!): Project!
+// #    addUser(userName: String!, password: String!): User!
+// #    addProjectTask(projectId: ID!, title: String, description: String, severity: TaskSeverity!, status: TaskStatus!): ProjectTask
+// #    updateProjectTask(projectTaskId: ID, title: String, description: String, severity: TaskSeverity!, status: TaskStatus!): Boolean!
+// #}

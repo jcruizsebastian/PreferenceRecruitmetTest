@@ -1,0 +1,67 @@
+﻿query login 
+{
+  login(userName: "user1", password: "user1") 
+  {
+    id,
+    userName,
+    elevated
+  }
+}
+
+query getAllProjects
+{
+  projects
+  {
+    id,
+    name
+  }
+}
+
+query getUpdatingProjectInfo
+{
+  updatingProjectInfo(projectid: "3")
+  {
+    id,
+    name,
+		projectUsers
+    { 
+      user 
+      {
+        id,
+        userName,
+        elevated
+      }
+    }
+  } 
+}
+
+query getUpdatingUserInfo
+{
+  updatingUserInfo(userid: "3")
+  {
+    id,
+    userName,
+    elevated
+  } 
+}
+
+query getAllUsers
+{
+  users {
+    id,
+    userName,
+    elevated
+  }
+}
+
+query getTasksFromProject
+{
+  tasks(projectid: "1") 
+  {
+    id,
+    title,
+    description,
+    status,
+    severity,
+  }
+}
