@@ -19,8 +19,7 @@ namespace Api.Graphql
         [GraphQLMetadata("login")]
         public User login(string userName, string password)
         {
-            var returnObject = myDBContext.Users.First(x => x.UserName == userName && x.Password == password);
-            return returnObject;
+            return myDBContext.Users.First(x => x.UserName == userName && x.Password == password);
         }
 
         [GraphQLMetadata("projects")]
@@ -32,8 +31,7 @@ namespace Api.Graphql
         [GraphQLMetadata("updatingProjectInfo")]
         public Project GetUpdatingProjectInfo(int projectid)
         {
-            var returnObject = myDBContext.Projects.Include(x => x.ProjectUsers).ThenInclude(y => y.User).First(y => y.Id == projectid);
-            return returnObject;
+            return myDBContext.Projects.Include(x => x.ProjectUsers).ThenInclude(y => y.User).First(y => y.Id == projectid);
         }
 
         [GraphQLMetadata("updatingUserInfo")]

@@ -52,13 +52,24 @@ namespace Api.Graphql
             return newProject;
         }
 
+        [GraphQLMetadata("updateProject")]
+        public Project UpdateProject(int projectId, string name, ICollection<int> usersId)
+        {
+            var project = myDBContext.Projects.Single(x => x.Id == projectId);
+            project.Name = name;
+
+            ReplaceUsersInProject(project, usersId);
+
+            return project;
+        }
+        
         private void ReplaceUsersInProject(Project project, ICollection<int> usersId)
         {
             if (usersId != null)
             {
-                myDBContext.Entry(project).Collection(x => x.ProjectUsers).Load();
-
-                myDBContext.Entry(project.ProjectUsers).State = EntityState.Deleted;
+                myDBContext.Entry(project).Collection(currentProject => currentProject.ProjectUsers).Load();
+                project.ProjectUsers.ToList().ForEach(currentProjectUser => myDBContext.Entry(currentProjectUser).State = EntityState.Deleted);
+                myDBContext.SaveChanges();
 
                 var projectUsers = new List<ProjectUser>();
                 foreach (int userId in usersId)
@@ -69,17 +80,6 @@ namespace Api.Graphql
                 myDBContext.ProjectUsers.AddRange(projectUsers);
                 myDBContext.SaveChanges();
             }
-        }
-
-        [GraphQLMetadata("updateProject")]
-        public Project UpdateProject(int projectId, string name, ICollection<int> usersId)
-        {
-            var project = myDBContext.Projects.Single(x => x.Id == projectId);
-            project.Name = name;
-
-            ReplaceUsersInProject(project, usersId);
-
-            return project;
         }
     }
 }

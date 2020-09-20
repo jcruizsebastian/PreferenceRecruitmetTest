@@ -83,3 +83,30 @@ mutation udpateUser
     elevated
   }
 }
+
+mutation createProject
+{
+  createProject(name: "nuevo proyecto") 
+  {
+  	id,
+    name
+  }
+}
+
+mutation updateProject
+{
+  updateProject(projectId: 5, name: "nuevo proyecto 2", usersId: [1,2,3])
+  {
+    id,
+    name,
+		projectUsers
+    { 
+      user 
+      {
+        id,
+        userName,
+        elevated
+      }
+    }
+  }
+}
