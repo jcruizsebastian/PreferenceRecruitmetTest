@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import  store  from './redux/index'
 
 function App() {
   return (
@@ -24,3 +25,20 @@ function App() {
 }
 
 export default App;
+
+
+// import React from 'react';
+// import './App.css';
+// import  store  from './redux/index'
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <input id="tbUserName" type="text" placeholder="type here your user name" />
+//       <input id="tbPassword" type="text" placeholder="type here your password" />
+//       <button 
+//     </div>
+//   );
+// }
+
+// export default App;

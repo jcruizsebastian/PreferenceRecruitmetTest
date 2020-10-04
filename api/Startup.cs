@@ -19,6 +19,12 @@ namespace api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(option => option.EnableEndpointRouting = false);
+
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
+
             services.AddControllers();
         }
 
@@ -30,17 +36,10 @@ namespace api
             //     app.UseDeveloperExceptionPage();
             // }
 
-            // app.UseHttpsRedirection();
-
-            // app.UseRouting();
-
-            // app.UseAuthorization();
-
-            // app.UseEndpoints(endpoints =>
-            // {
-            //     endpoints.MapControllers();
-            // });
-
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
 
             app.UseGraphiQl("/graphql");
             app.UseMvc();
